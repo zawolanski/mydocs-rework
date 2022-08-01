@@ -1,4 +1,5 @@
-import { NextPage } from 'next';
+import { GetStaticProps, NextPage } from 'next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Link from 'next/link';
 
 const Signin: NextPage = () => (
@@ -9,5 +10,11 @@ const Signin: NextPage = () => (
     <p>Sign up</p>
   </div>
 );
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => ({
+  props: {
+    ...(await serverSideTranslations(locale || 'en', ['signup'])),
+  },
+});
 
 export default Signin;
