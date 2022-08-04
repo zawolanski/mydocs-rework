@@ -18,7 +18,7 @@ const Home: NextPage = () => {
       </Head>
       <Header />
       <div className={styles.main}>
-        <div className="m-auto w-96 border border-black p-8 text-xl flex flex-col">
+        <div className="m-auto w-96 border border-black p-8 text-xl flex flex-col mt-10">
           <h1 className="text-3xl mb-3">{t('header')}</h1>
           <Link href="/signin">
             <a className="underline hover:text-red-600 mb-2">{t('signIn')}</a>
