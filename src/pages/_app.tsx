@@ -6,7 +6,9 @@ import '../styles/globals.css';
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
   <ThemeProvider attribute="class">
-    <Component {...pageProps} />
+    <div className="font-sans antialiased">
+      <Component {...pageProps} />
+    </div>
   </ThemeProvider>
 );
 
