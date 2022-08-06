@@ -2,7 +2,7 @@ import { GetStaticProps, NextPage } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Link from 'next/link';
 
-import Header from '@/components/Header';
+import { Header } from '@/components/Header';
 
 const Signin: NextPage = () => (
   <>

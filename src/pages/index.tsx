@@ -4,7 +4,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
 
-import Header from '@/components/Header';
+import { Header } from '@/components/Header';
 
 import styles from 'styles/common.module.css';
 
