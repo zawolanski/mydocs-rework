@@ -18,7 +18,7 @@ const Signin: NextPage = () => (
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
   props: {
-    ...(await serverSideTranslations(locale || 'en', ['signin'])),
+    ...(await serverSideTranslations(locale || 'en', ['signin', 'common'])),
   },
 });
 
