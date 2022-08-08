@@ -16,10 +16,10 @@ const Home: NextPage = () => {
       </Head>
       <Header />
       <div className={styles.main}>
-        <div className="m-auto w-96 border border-black p-8 text-xl flex flex-col mt-10">
-          <h1 className="text-3xl mb-3">{t('header')}</h1>
+        <div className="m-auto mt-10 flex w-96 flex-col border border-black p-8 text-xl">
+          <h1 className="mb-3 text-3xl">{t('header')}</h1>
           <Link href="/signin">
-            <a className="underline hover:text-red-600 mb-2">{t('signIn')}</a>
+            <a className="mb-2 underline hover:text-red-600">{t('signIn')}</a>
           </Link>
           <Link href="/signup">
             <a className="underline hover:text-red-600">{t('signUp')}</a>

@@ -23,8 +23,8 @@ const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 left-0 p-4 lg:px-8 border-b border-slate-900/10 dark:border-slate-300/10">
-      <div className="max-w-7xl mx-auto flex items-center">
+    <header className="sticky top-0 left-0 border-b border-slate-900/10 p-4 dark:border-slate-300/10 lg:px-8">
+      <div className="mx-auto flex max-w-7xl items-center">
         <Logo />
         <div className="ml-auto flex space-x-2">
           <Select

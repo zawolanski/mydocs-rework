@@ -24,7 +24,7 @@ const Logo = ({ size = 'medium' }: Props) => {
 
   return (
     <Link href="/">
-      <a className="flex gap-0.5 items-center">
+      <a className="flex items-center gap-0.5">
         <span className="sr-only">{t('logoInformationText')}</span>
         <DocumentTextIcon className={`${iconSize} text-cyan-500`} />
         <span className={`${textSize} font-semibold tracking-wide`}>DOCS</span>
