@@ -1,5 +1,6 @@
-import { Listbox, Transition } from '@headlessui/react';
+import { Listbox } from '@headlessui/react';
 import { Fragment, useEffect, useState } from 'react';
+import { PanelTransition } from '../Transition';
 import { SelectOption } from './types';
 
 interface Props {
@@ -38,14 +39,7 @@ const Select = ({
       >
         {btnLabel}
       </Listbox.Button>
-      <Transition
-        enter="transition duration-100 ease-out"
-        enterFrom="transform scale-95 opacity-0"
-        enterTo="transform scale-100 opacity-100"
-        leave="transition duration-75 ease-out"
-        leaveFrom="transform scale-100 opacity-100"
-        leaveTo="transform scale-95 opacity-0"
-      >
+      <PanelTransition>
         <Listbox.Options
           className={`absolute top-1 z-50 rounded-md bg-white py-1 text-sm font-semibold tracking-wide text-slate-700 shadow-lg ring-1 ring-slate-900/5 focus:outline-none dark:bg-slate-800 dark:text-slate-300 dark:ring-0 ${optionsClass}`}
         >
@@ -63,7 +57,7 @@ const Select = ({
             </Listbox.Option>
           ))}
         </Listbox.Options>
-      </Transition>
+      </PanelTransition>
     </Listbox>
   );
 };
