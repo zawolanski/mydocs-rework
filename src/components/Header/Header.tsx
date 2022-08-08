@@ -1,4 +1,5 @@
 import { TranslateIcon } from '@heroicons/react/outline';
+import { useTranslation } from 'next-i18next';
 import { useTheme } from 'next-themes';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
@@ -8,6 +9,7 @@ import { getLanguageOptions, getThemeOptions } from './getOptions';
 
 const Header = () => {
   const router = useRouter();
+  const [t] = useTranslation();
   const { resolvedTheme, setTheme, theme } = useTheme();
   const [locales] = useState(getLanguageOptions(router.locales || ['en']));
 
@@ -34,7 +36,7 @@ const Header = () => {
             customLabel={<TranslateIcon className="w-6" />}
             buttonClass="!p-2"
             optionClass="text-lg font-medium py-1 px-3 uppercase"
-            srLabel="Language"
+            srLabel={t('srLanguage')}
           />
           <Select
             options={getThemeOptions(resolvedTheme)}
@@ -42,7 +44,7 @@ const Header = () => {
             onSelectChange={onThemeChange}
             buttonClass="!p-2"
             optionsClass="right-0 min-w-[8rem]"
-            srLabel="Theme"
+            srLabel={t('srTheme')}
           />
         </div>
       </div>
