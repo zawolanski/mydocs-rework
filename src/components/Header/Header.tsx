@@ -1,60 +1,48 @@
+import { useState } from 'react';
+import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
-import { SunIcon, MoonIcon, DesktopComputerIcon } from '@heroicons/react/outline';
 
 import { Logo } from '@/components/Logo';
 import { Select, SelectOption } from '@/components/Select';
+import { TranslateIcon } from '@heroicons/react/outline';
+import { getLanguageOptions, getThemeOptions } from './getOptions';
 
 const Header = () => {
+  const router = useRouter();
   const { resolvedTheme, setTheme, theme } = useTheme();
+  const [locales] = useState(getLanguageOptions(router.locales || ['en']));
 
-  const themeOptions: SelectOption[] = [
-    {
-      id: 'light',
-      name: (
-        <>
-          <SunIcon className="w-6" />
-          <span>Light</span>
-        </>
-      ),
-      label: <SunIcon className="w-6 text-cyan-500" />,
-    },
-    {
-      id: 'dark',
-      name: (
-        <>
-          <MoonIcon className="w-6" />
-          <span>Dark</span>
-        </>
-      ),
-      label: <MoonIcon className="w-6 text-cyan-500" />,
-    },
-    {
-      id: 'system',
-      name: (
-        <>
-          <DesktopComputerIcon className="w-6" />
-          <span>System</span>
-        </>
-      ),
-      label: resolvedTheme === 'dark' ? <MoonIcon className="w-6" /> : <SunIcon className="w-6" />,
-    },
-  ];
-
-  const onSelectChange = (value?: SelectOption) => {
+  const onThemeChange = (value?: SelectOption) => {
     if (value) setTheme(value.id.toString());
+  };
+
+  const onLanguageChange = (value?: SelectOption) => {
+    if (value && value.id.toString() !== router.locale) {
+      router.push(router.pathname, router.asPath, { locale: value.id.toString() });
+      localStorage.setItem('locale', value.id.toString());
+    }
   };
 
   return (
     <header className="sticky top-0 left-0 p-4 lg:px-8 border-b border-slate-900/10 dark:border-slate-300/10">
       <div className="max-w-7xl mx-auto flex items-center">
         <Logo />
-        <div className="ml-auto flex">
+        <div className="ml-auto flex space-x-2">
           <Select
-            options={themeOptions}
-            selectedItem={themeOptions.find((option) => option.id === theme)!}
-            onSelectChange={onSelectChange}
+            options={locales}
+            selectedItem={locales.find((option) => router.locale === option.id)!}
+            onSelectChange={onLanguageChange}
+            customLabel={<TranslateIcon className="w-6" />}
             buttonClass="!p-2"
-            optionsClass="right-0 top-1 min-w-[8rem]"
+            optionClass="text-lg font-medium py-1 px-3 uppercase"
+            srLabel="Language"
+          />
+          <Select
+            options={getThemeOptions(resolvedTheme)}
+            selectedItem={getThemeOptions(resolvedTheme).find((option) => option.id === theme)!}
+            onSelectChange={onThemeChange}
+            buttonClass="!p-2"
+            optionsClass="right-0 min-w-[8rem]"
             srLabel="Theme"
           />
         </div>

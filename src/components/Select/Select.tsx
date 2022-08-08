@@ -1,5 +1,5 @@
-import { Listbox, Transition } from '@headlessui/react';
 import { Fragment, useEffect, useState } from 'react';
+import { Listbox, Transition } from '@headlessui/react';
 
 import { SelectOption } from './types';
 
@@ -11,6 +11,7 @@ interface Props {
   customLabel?: React.ReactNode;
   buttonClass?: string;
   optionsClass?: string;
+  optionClass?: string;
 }
 
 const Select = ({
@@ -20,14 +21,15 @@ const Select = ({
   onSelectChange,
   buttonClass = '',
   optionsClass = '',
+  optionClass = '',
   srLabel,
 }: Props) => {
   const [btnLabel, setBtnLabel] = useState(customLabel);
 
   useEffect(() => {
     if (selectedItem?.label) setBtnLabel(selectedItem.label);
-    else if (selectedItem?.name) setBtnLabel(selectedItem.name);
-  }, [selectedItem]);
+    else if (selectedItem?.name && !customLabel) setBtnLabel(selectedItem.name);
+  }, [customLabel, selectedItem]);
 
   return (
     <Listbox value={selectedItem} onChange={(value) => onSelectChange(value)} as="div" className="relative">
@@ -47,7 +49,7 @@ const Select = ({
       >
         <Listbox.Options
           className={`
-          absolute z-50 bg-white text-slate-700 text-sm rounded-md py-1 font-semibold tracking-wide ring-1 ring-slate-900/5 shadow-lg dark:bg-slate-800 dark:text-slate-300 dark:ring-0 focus:outline-none 
+          absolute top-1 z-50 bg-white text-slate-700 text-sm rounded-md py-1 font-semibold tracking-wide ring-1 ring-slate-900/5 shadow-lg dark:bg-slate-800 dark:text-slate-300 dark:ring-0 focus:outline-none 
           ${optionsClass}
         `}
         >
@@ -57,7 +59,7 @@ const Select = ({
                 <li
                   className={`
                     flex items-center px-3 py-1 space-x-2 cursor-pointer 
-                    ${selected ? 'text-cyan-500' : ''} ${active ? 'bg-slate-400/20' : ''}
+                    ${selected ? 'text-cyan-500' : ''} ${active ? 'bg-slate-400/20' : ''} ${optionClass}
                   `}
                 >
                   {option.name}
