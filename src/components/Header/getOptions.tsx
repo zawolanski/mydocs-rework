@@ -1,5 +1,5 @@
-import { SelectOption } from '@/components/Select';
 import { DesktopComputerIcon, MoonIcon, SunIcon } from '@heroicons/react/outline';
+import { SelectOption } from '@/components/Select';
 
 export const getThemeOptions = (resolvedTheme: string | undefined): SelectOption[] => [
   {

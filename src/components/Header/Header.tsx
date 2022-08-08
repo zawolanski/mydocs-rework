@@ -1,10 +1,9 @@
-import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { TranslateIcon } from '@heroicons/react/outline';
 import { useTheme } from 'next-themes';
-
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 import { Logo } from '@/components/Logo';
 import { Select, SelectOption } from '@/components/Select';
-import { TranslateIcon } from '@heroicons/react/outline';
 import { getLanguageOptions, getThemeOptions } from './getOptions';
 
 const Header = () => {

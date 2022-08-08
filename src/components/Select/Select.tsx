@@ -1,6 +1,5 @@
-import { Fragment, useEffect, useState } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
-
+import { Fragment, useEffect, useState } from 'react';
 import { SelectOption } from './types';
 
 interface Props {

@@ -1,6 +1,6 @@
-import Link from 'next/link';
 import { DocumentTextIcon } from '@heroicons/react/solid';
 import { useTranslation } from 'next-i18next';
+import Link from 'next/link';
 
 interface Props {
   size?: 'small' | 'medium' | 'large';

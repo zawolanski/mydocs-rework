@@ -1,10 +1,9 @@
 import type { AppProps } from 'next/app';
 import { appWithTranslation } from 'next-i18next';
 import { ThemeProvider } from 'next-themes';
-
-import '../styles/globals.css';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import '../styles/globals.css';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();

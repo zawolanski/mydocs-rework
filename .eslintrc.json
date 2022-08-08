@@ -52,6 +52,18 @@
         "ts": "never",
         "tsx": "never"
       }
+    ],
+    "import/order": [
+      "error",
+      {
+        "groups": ["type", "builtin", "external", "internal", ["parent", "sibling", "index"], "unknown"],
+        "newlines-between": "never",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "warnOnUnassignedImports": true
+      }
     ]
   },
   "settings": {
