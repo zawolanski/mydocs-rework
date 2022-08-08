@@ -2,5 +2,7 @@
   "pageTitle": "My docs",
   "header": "My docs",
   "signIn": "Sign in to your account.",
-  "signUp": "Create a new account."
+  "signInText": "Log in to your account and back to your document right off.",
+  "signUp": "Create a new account.",
+  "signUpText": "Sign up to the DOCS, create your first document and enjoy your work."
 }

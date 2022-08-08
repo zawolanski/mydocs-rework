@@ -34,7 +34,7 @@ const Select = ({
     <Listbox value={selectedItem} onChange={(value) => onSelectChange(value)} as="div" className="relative">
       <Listbox.Label className="sr-only">{srLabel}</Listbox.Label>
       <Listbox.Button
-        className={`flex items-center space-x-2 rounded-full bg-slate-400/10 px-3 py-1 text-slate-500 hover:bg-slate-400/20 dark:text-slate-400 ${buttonClass}`}
+        className={`flex items-center space-x-2 rounded-full bg-slate-400/10 px-3 py-1 text-slate-500 transition-colors hover:bg-slate-400/20 dark:text-slate-400 ${buttonClass}`}
       >
         {btnLabel}
       </Listbox.Button>
